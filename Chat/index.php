@@ -55,7 +55,7 @@
 
         <div class="chat">
             <?php
-                 $sql = "SELECT usuario, mensagens, id FROM tabela_mensagens";
+                 $sql = "SELECT usuario, mensagens, id FROM tabela_mensagens ORDER BY id DESC"; 
 
                  //faz a execução e armazena todos os registros
                  $resultado = $conexao -> query($sql);
@@ -70,7 +70,7 @@
                         echo "<p> <b> {$linha['usuario']} </b> {$linha['mensagens']} </p>";
 
                         echo '<form method="POST" action="">';
-                        echo "<input type='text' name='id' value='{$linha['id']}' >";
+                        echo "<input type='hidden' name='id' value='{$linha['id']}' >";
                         echo "<button type= 'submit' name='excluir'> Excluir </button>";
                         echo '</form>';
 
